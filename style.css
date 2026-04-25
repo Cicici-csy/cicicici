@@ -290,7 +290,7 @@ letter-spacing: 1px;
     }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 400px) {
     #icon {
         display: block;
         padding: 0;
