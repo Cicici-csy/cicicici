@@ -297,7 +297,7 @@ letter-spacing: 1px;
     }
 
     #icon svg {
-        height: 50px;
+        height: 30px;
     }
 
     #aboutme {
@@ -344,7 +344,7 @@ letter-spacing: 1px;
     h2 {
         position: static;
         text-align: center;
-        font-size: 22px;
+        font-size: 10px;
         margin-top: 16px;
     }
 }
