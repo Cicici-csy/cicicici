@@ -309,155 +309,7 @@ ul {
     }
 
     #icon svg {
-        height: 30px;
-    }
-
-    #aboutme {
-        position: fixed;
-        top: 30px;
-        left: 20px;
-    }
-
-    #resume {
-        position: fixed;
-        top: 30px;
-        right: 20px;
-    }
-
-    #portfolio {
-        position: fixed;
-        bottom: 30px;
-        left: 20px;
-    }
-
-    #contact {
-        position: fixed;
-        bottom: 30px;
-        right: 20px;
-    }
-
-    #logo-area {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-        width: 90vw;
-    }
-
-    #logo {
-        max-width: 85vw;
-        max-height: 65vh;
-    }
-
-    h2 {
-        position: static;
-        text-align: center;
-        font-size: 22px;
-        margin-top: 16px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    .title {
-        position: fixed;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        text-align: center;
-        white-space: nowrap;
-    }
-
-    #cicilogo {
-        display: none;
-    }
-
-    #introduction {
-        position: relative;
-        width: calc(100vw - 40px);
-        height: auto;
-        top: 20px;
-        left: auto;
-        margin: 60px auto 40px;
-    }
-
-    #resume-content {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        margin-top: 60px;
-    }
-
-    #experience, #projects {
-        grid-column: 1;
-    }
-
-    #portfolio-grid {
-        grid-template-columns: 1fr;
-        padding: 0 20px;
-        margin-top: 100px;
-    }
-
-    #portfolio-grid svg {
-        max-width: 85vw;
-        height: auto;
-    }
-
-    #project1, #project2, #project3, #project4 {
-        transform: none;
-    }
-
-    #portfolio-grid > div:nth-child(odd) {
-        justify-self: start;
-    }
-
-    #portfolio-grid > div:nth-child(even) {
-        justify-self: end;
-    }
-
-    .project-grid {
-        width: 95%;
-        gap:30px;
-        /* margin: 60px auto 0; */
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top: 100px;
-    }
-    #portfolio-grid svg {
-        width: 100%;
-        max-width: 45vw;
-        height: auto;
-    }
-
-    #contacticon {
-        margin-top: 100px;
-        gap: 90px;
-    }
-
-    #homepage {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-    }
-
-    #homepage svg {
-        width: 50px;
-        height: auto;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-   #icon {
-        display: block;
-        padding: 0;
-    }
-
-    #icon svg {
-        height: 60px;
+        height: 70px;
     }
 
     #aboutme {
@@ -504,7 +356,7 @@ ul {
     h2 {
         position: static;
         text-align: center;
-        font-size: 20px;
+        font-size: 30px;
         margin-top: 16px;
     }
 
@@ -550,33 +402,28 @@ ul {
         margin-top: 100px;
     }
 
-    #portfolio-grid svg {
-        max-width: 85vw;
-        height: auto;
-    }
-
-    #project1, #project2, #project3, #project4 {
-        transform: none;
-    }
-
-    #portfolio-grid > div:nth-child(odd) {
-        justify-self: start;
-    }
-
-    #portfolio-grid > div:nth-child(even) {
-        justify-self: end;
-    }
-
-    .project-grid {
-        width: 95%;
-        gap:25px;
-        /* margin: 60px auto 0; */
-        margin-top: 80px;
-    }
     #portfolio-grid svg {
         width: 90%;
         max-width: 35vw;
         height: auto;
+    }
+
+    #project1, #project2, #project3, #project4 {
+        transform: none;
+    }
+
+    #portfolio-grid > div:nth-child(odd) {
+        justify-self: start;
+    }
+
+    #portfolio-grid > div:nth-child(even) {
+        justify-self: end;
+    }
+
+    .project-grid {
+        width: 95%;
+        gap: 25px;
+        margin: 80px auto 0;
     }
 
     #contacticon {
@@ -593,5 +440,37 @@ ul {
     #homepage svg {
         width: 50px;
         height: auto;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    #icon svg {
+        height: 50px;
+    }
+
+    #portfolio {
+        bottom: 30px;
+    }
+
+    #contact {
+        bottom: 30px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    #portfolio-grid svg {
+        width: 100%;
+        max-width: 45vw;
+    }
+
+    .project-grid {
+        margin-top: 100px;
+    }
+
+    #contacticon {
+        margin-top: 100px;
+        gap: 90px;
     }
 }
