@@ -107,10 +107,36 @@ ul {
     right: 3%;
 }
 
+#lighticon{
+    position: fixed;
+    bottom: 5%;
+    left:3%;
+    visibility: visible;
+}
+
 #homepage svg {
     display: block;
     width: 55px;
     height: auto;
+    transition:
+        transform 0.4s ease,
+        filter 0.3s ease;
+}
+
+#homepage svg:hover {
+    transform: rotate(30deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+#lighticon svg {
+    transition:
+        transform 0.4s ease,
+        filter 0.3s ease;
+}
+
+#lighticon svg:hover {
+    transform: rotate(-20deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 .title{
@@ -172,6 +198,17 @@ ul {
     align-items: center;
     margin-top: 120px;
     gap:30px;
+}
+
+#contacticon svg {
+    transition:
+        transform 0.4s ease,
+        filter 0.3s ease;
+}
+
+#contacticon svg:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 #contacticon > div {
@@ -282,6 +319,32 @@ ul {
 
 .project-grid img {
     max-width: 100%;
+}
+
+body.preview-light h1, body.preview-light h2, body.preview-light h3,
+body.preview-light p, body.preview-light ul, body.preview-light li,
+body.preview-light .svg-title, body.preview-light .svg-styles {
+    color: #000;
+}
+body.preview-light #introduction,
+body.preview-light #education,
+body.preview-light #skills,
+body.preview-light #experience,
+body.preview-light #projects {
+    background-color: #FFFFCC;
+}
+
+body.preview-dark h1, body.preview-dark h2, body.preview-dark h3,
+body.preview-dark p, body.preview-dark ul, body.preview-dark li,
+body.preview-dark .svg-title, body.preview-dark .svg-styles {
+    color: #ffffff;
+}
+body.preview-dark #introduction,
+body.preview-dark #education,
+body.preview-dark #skills,
+body.preview-dark #experience,
+body.preview-dark #projects {
+    background-color: #362A1D;
 }
 
 @media (prefers-color-scheme: dark){
@@ -441,6 +504,10 @@ ul {
         width: 50px;
         height: auto;
     }
+    
+    #lighticon{
+        visibility: hidden;
+    }
 }
 
 @media screen and (max-width: 430px) {
@@ -472,5 +539,8 @@ ul {
     #contacticon {
         margin-top: 100px;
         gap: 90px;
+    }
+    #lighticon{
+        visibility: hidden;
     }
 }
