@@ -34,25 +34,6 @@ function changed(){
 
 lighticon.addEventListener('click', changed);
 
-const pageTitle = document.querySelector('.title');
-if (pageTitle) {
-    window.addEventListener('scroll', () => {
-        pageTitle.classList.toggle('title-hidden', window.scrollY > 60);
-    }, { passive: true });
-}
-
-const carousel = document.querySelector('.project-grid');
-if (carousel) {
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
-    prevBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
-    });
-    nextBtn.addEventListener('click', () => {
-        carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
-    });
-}
-
 if (window.innerWidth > 1030) {
 
 document.body.style.cursor = 'none';
