@@ -309,11 +309,10 @@ ul {
 }
 
 .project-grid{
-    width: 1250px;
+    width: 1300px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     margin: 120px auto 0;
 }
 
@@ -435,6 +434,7 @@ body.preview-dark #projects {
         text-align: center;
         white-space: nowrap;
     }
+    
 
     #cicilogo {
         display: none;

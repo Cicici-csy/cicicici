@@ -5,32 +5,797 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="16x16" href="image/favicon16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon32.png">
-    <title>Project2:Lemo</title>
+    <title>Project2:Greenify</title>
     <link rel = 'stylesheet' href = 'style.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&family=Cormorant+Garamond:wght@300..700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
-</head>
+  <style>
 
-  <body>
-  <main>
+    :root {
+      --green:       #4a7c3f;
+      --green-light: #7ab648;
+      --green-pale:  #d4e8c2;
+      --cream:       #f5f0e8;
+      --cream-dark:  #ede5d4;
+      --brown:       #6b4c2a;
+      --brown-light: #a07850;
+      --text:        #2a2a1e;
+      --text-muted:  #7a7060;
+      --border:      rgba(74,124,63,0.15);
+      --card-bg:     rgba(255,255,255,0.7);
+    }
+ 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin-left: 30px;
+  margin-right:30px;
+}
+
+
+ h3{
+  color: black;
+ }
+
+ 
+    /* subtle grain texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+ 
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 80px 8vw;
+      gap: 60px;
+      position: relative;
+    }
+ 
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -100px; top: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(122,182,72,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+ 
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 28px; height: 1px;
+      background: var(--green);
+    }
+ 
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(64px, 9vw, 110px);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--brown);
+      margin-bottom: 20px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--green);
+    }
+ 
+    .hero-tagline {
+      font-family: 'Courier Prime', monospace;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+ 
+    .hero-desc-zh {
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.9;
+      margin-bottom: 10px;
+    }
+    .hero-desc-en {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-style: italic;
+    }
+ 
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeUp 0.9s 0.2s ease both;
+    }
+ 
+    .hero-screens-img{
+      width: 100%; 
+      height: auto;
+      object-fit: contain;
+    }
+ 
+    /* ── DIVIDER ── */
+    .divider-line {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 8vw;
+    }
+ 
+    /* ── SECTION ── */
+    section { padding: 72px 8vw; position: relative; }
+ 
+    .section-label {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .section-zh {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 400;
+      color: var(--brown);
+    }
+    .section-en {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+ 
+    /* ── RESEARCH ── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+ 
+    .research-col h3 {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+ 
+    /* big stat */
+    .big-stat {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .big-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--green);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .big-stat-text {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.8;
+      padding-top: 6px;
+    }
+    .big-stat-text em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--green);
+    }
+ 
+    .gap-note {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      padding: 10px 14px;
+      border-left: 2px solid var(--green-light);
+      background: rgba(122,182,72,0.06);
+      border-radius: 0 8px 8px 0;
+    }
+ 
+    /* right col */
+    .concept-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .concept-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--brown);
+      margin-bottom: 10px;
+    }
+    .concept-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .concept-card p em { color: var(--green); font-style: normal; font-weight: 500; }
+ 
+    /* pain points */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .pain-card {
+      background: var(--cream-dark);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid rgba(107,76,42,0.1);
+    }
+    .pain-card h5 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: var(--brown);
+      margin-bottom: 6px;
+    }
+    .pain-card p { font-size: 12px; color: var(--text-muted); line-height: 1.7; }
+ 
+    /* ── PERSONA ── */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 16px;
+    }
+    .persona-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      backdrop-filter: blur(4px);
+    }
+    .persona-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .persona-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 4px;
+    }
+    .persona-meta {
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .persona-row { margin-bottom: 6px; }
+    .persona-row span {
+      font-size: 10px;
+      font-family: 'Courier Prime', monospace;
+      letter-spacing: 0.06em;
+      color: var(--green);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .persona-row p { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+ 
+    /* ── SOLUTIONS ── */
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+    .solution-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+      position: relative;
+      overflow: hidden;
+    }
+    .solution-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green-light), var(--green-pale));
+    }
+    .solution-icon {
+      width: 36px; height: 36px;
+      background: var(--green-pale);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+    .solution-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .solution-en {
+      font-family: 'Courier Prime', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .solution-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+    .solution-bullets { list-style: none; margin-top: 12px; display: flex; flex-direction: column; gap: 5px; }
+    .solution-bullets li {
+      font-size: 12px; color: var(--text-muted);
+      display: flex; gap: 8px;
+    }
+    .solution-bullets li::before { content: '↳'; color: var(--green-light); flex-shrink: 0; }
+ 
+    /* ── IA ── */
+    .ia-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 32px;
+      backdrop-filter: blur(4px);
+    }
+    .ia-tree {
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
+    }
+    .ia-root {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 24px;
+      border-right: 2px solid var(--green-pale);
+      margin-right: 24px;
+    }
+    .ia-root-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--green);
+      writing-mode: horizontal-tb;
+      padding: 8px 12px;
+      background: var(--green-pale);
+      border-radius: 8px;
+    }
+    .ia-branches {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .ia-branch {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ia-branch-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--brown);
+      text-transform: uppercase;
+      min-width: 80px;
+      background: var(--cream-dark);
+      padding: 4px 10px;
+      border-radius: 5px;
+    }
+    .ia-leaves {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .ia-leaf {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: rgba(122,182,72,0.08);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+ 
+    /* ── INTERFACE SECTION ── */
+    .interface-intro {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+    .interface-img-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.interface-img-slot {
+  width: 200%;
+  border-radius: 14px;
+  overflow: hidden;
+}
+ 
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-left { animation: fadeUp 0.8s ease both; }
+ 
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+ 
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .research-grid, .persona-grid { grid-template-columns: 1fr; }
+      .solutions-grid { grid-template-columns: 1fr; }
+      .interface-img-grid { grid-template-columns: 1fr 1fr; }
+      .pain-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  </head>
   
   <!--title-->
   <div class="title">
-  <h1>Project2:Lemo</h1>
+  <h1 style = "color: rgb(22, 22, 22);">Project2:Greenify</h1>
+</div>
+
+<body>
+  <div class="wrapper">
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">UX Design · AI-Powered Grocery App</div>
+      <a href="https://www.figma.com/proto/HrhJocbqpjLPX4qwbXJIRo/greenify?node-id=469-901&p=f&viewport=551%2C267%2C0.12&t=ZeG5BzcCLl4tIpWj-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=439%3A425&page-id=0%3A1" style="text-decoration: none;">
+  <div class="hero-title">Green<em>ify</em></div></a>
+      <div class="hero-tagline">AI · ECO SCORE · SUSTAINABLE SHOPPING</div>
+      <p class="hero-desc-zh">
+        一款 AI 驱动的可持续购物应用，帮助用户在购买日常商品时<br>
+        了解其环境影响，并引导用户做出更环保的消费选择。
+      </p>
+      <p class="hero-desc-en" style="margin-top:10px;">
+        An AI-powered grocery app that reveals <br> the environmental impact<br>
+        behind everyday products, helping <br> users shop more sustainably.
+      </p>
+    </div>
+    <div class="hero-right">
+      <img class="hero-screens-img" src="image/greenify1.png" alt="Greenify App Screens">
+    </div>
+  </section>
+ 
+  <hr class="divider-line">
+ 
+  <!-- ══════════════════════════════════════════
+       RESEARCH
+  ══════════════════════════════════════════ -->
+  <section>
+    <div class="section-label reveal">
+      <span class="section-zh">研究背景</span>
+      <span class="section-en">Research &amp; Insights</span>
+    </div>
+ 
+    <div class="research-grid">
+      <!-- LEFT -->
+      <div class="reveal">
+        <h3>A. 数据调研 Data Research</h3>
+        <div class="big-stat">
+          <div class="big-stat-num">78%</div>
+          <div class="big-stat-text">
+            的消费者认为：<em>Sustainable Lifestyles</em> 对他们来说很重要<br>
+            <span style="font-size:12px; color:var(--text-muted); margin-top:6px; display:block;">但只有少数人近一个月内购买过环保产品（GlobeScan, 2025）</span>
+          </div>
+        </div>
+        <div class="gap-note">→ 环保意愿与实际行动之间存在明显差距 Say–Do Gap</div>
+ 
+        <div style="margin-top:28px;">
+          <h3>B. 研究洞察 Research Insight</h3>
+          <div style="margin-top:12px; display:flex; flex-direction:column; gap:10px;">
+            <div class="pain-card">
+              <h5>信息不透明 &nbsp;Information Gap</h5>
+              <p>在购物过程中，用户很难获取或理解产品的可持续信息。</p>
+            </div>
+            <div class="pain-card">
+              <h5>行为激励不足 &nbsp;Motivation Gap</h5>
+              <p>缺乏反馈机制，使用户难以长期坚持环保消费习惯。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- RIGHT -->
+      <div class="reveal">
+        <h3>产品概念 Concept Overview</h3>
+        <div class="concept-card">
+          <h4>Eco Score 系统</h4>
+          <p>Greenify 通过分析商品的成分、包装和供应链信息计算 Eco Score。帮助用户<em>比较商品的环境影响</em>，并推荐更环保的替代方案。</p>
+        </div>
+        <div class="concept-card">
+          <h4>行为追踪与激励</h4>
+          <p>系统会<em>追踪用户的购物行为</em>，帮助用户可视化长期的购买环保数值，从而让可持续消费变得更直观、更容易执行。</p>
+        </div>
+ 
+        <div style="margin-top:24px;">
+          <h3>问题陈述 Problem Statement</h3>
+          <div class="concept-card" style="margin-top:12px; border-left: 3px solid var(--green-light);">
+            <p style="font-size:14px; line-height:1.9;">
+              尽管消费者有环保意识并希望做出更环保的消费选择，<br>
+              但在实际购物过程仍然中<em>缺乏清晰的信息与决策支持</em>。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <hr class="divider-line">
+ 
+  <!-- ══════════════════════════════════════════
+       PERSONA
+  ══════════════════════════════════════════ -->
+  <section>
+    <div class="section-label reveal">
+      <span class="section-zh">用户画像</span>
+      <span class="section-en">User Persona</span>
+    </div>
+ 
+    <div class="persona-grid reveal">
+      <div class="persona-card">
+        <div class="persona-avatar">
+          <img src="image/persona1.png" alt="Maya" style="width:80%; height:100%; object-fit:cover;">
+</div>
+        <div>
+          <div class="persona-name">Maya Singh — The Aspiring Activist</div>
+          <div class="persona-meta">年龄：28 &nbsp;·&nbsp; 职业：社交媒体经理</div>
+          <div class="persona-row">
+            <span>特点</span>
+            <p>对环保议题充满热情，但在购物时经常因信息<br>不透明而感到困惑。</p>
+          </div>
+          <div class="persona-row">
+            <span>目标</span>
+            <p>能够轻松找到真正环保的产品。</p>
+          </div>
+          <div class="persona-row">
+            <span>痛点</span>
+            <p>环保标签复杂，难以判断自己的消费是否<br>真正产生积极影响。</p>
+          </div>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-avatar">
+  <img src="image/persona2.png" alt="David" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+</div>
+        <div>
+          <div class="persona-name">David Chen — The Busy Parent</div>
+          <div class="persona-meta">年龄：39 &nbsp;·&nbsp; 职业：项目经理 &amp; 两个孩子的父亲</div>
+          <div class="persona-row">
+            <span>特点</span>
+            <p>时间有限，但希望为家庭做出更负责任的消费选择。</p>
+          </div>
+          <div class="persona-row">
+            <span>目标</span>
+            <p>在保证效率的同时购买更可持续的商品。</p>
+          </div>
+          <div class="persona-row">
+            <span>痛点</span>
+            <p>没有时间比较商品，也缺乏清晰的环保信息。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <hr class="divider-line">
+ 
+  <!-- ══════════════════════════════════════════
+       SOLUTIONS
+  ══════════════════════════════════════════ -->
+  <section>
+    <div class="section-label reveal">
+      <span class="section-zh">设计方案</span>
+      <span class="section-en">Solutions</span>
+    </div>
+ 
+    <p class="reveal" style="font-size:15px; color:var(--text-muted); margin-bottom:32px; font-style:italic;">
+      Greenify 通过 AI 技术让可持续信息<strong style="color:var(--green); font-style:normal;">可见、可比较、可反馈</strong>。
+    </p>
+ 
+    <div class="solutions-grid reveal">
+      <div class="solution-card">
+        <div class="solution-icon">📊</div>
+        <div class="solution-en">Smart Ranking</div>
+        <div class="solution-title">智能排名</div>
+        <div class="solution-desc">AI 将根据成分、包装和环保等数据计算Eco Score，环保评分高的产品将会优先展示。</div>
+        <ul class="solution-bullets">
+          <li>绿色 = 高可持续</li>
+          <li>红色 = 低环保评分</li>
+          <li>实时对比替代产品</li>
+        </ul>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">🌱</div>
+        <div class="solution-en">Impact Tracker</div>
+        <div class="solution-title">影响追踪</div>
+        <div class="solution-desc">系统追踪用户的购物行为计算个人生态信用评分，让用户看到自己的环保消费趋势。</div>
+        <ul class="solution-bullets">
+          <li>环保消费趋势可视化</li>
+          <li>个人环境影响变化</li>
+          <li>Eco Credit 积分奖励</li>
+        </ul>
+      </div>
+      <div class="solution-card">
+        <div class="solution-icon">🤖</div>
+        <div class="solution-en">AI Suggestion</div>
+        <div class="solution-title">AI 建议</div>
+        <div class="solution-desc">AI 根据用户历史购买记录推荐更环保的替代商品及当季可持续产品。</div>
+        <ul class="solution-bullets">
+          <li>更环保的替代商品</li>
+          <li>当季可持续产品</li>
+          <li>AI 聊天界面咨询</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+ 
+  <hr class="divider-line">
+ 
+  <!-- ══════════════════════════════════════════
+       INFORMATION ARCHITECTURE
+  ══════════════════════════════════════════ -->
+  <section>
+    <div class="section-label reveal">
+      <span class="section-zh">产品信息架构</span>
+      <span class="section-en">Information Architecture</span>
+    </div>
+ 
+    <div class="ia-container reveal">
+      <div class="ia-tree">
+        <div class="ia-root">
+          <div class="ia-root-label">Greenify</div>
+        </div>
+        <div class="ia-branches">
+          <div class="ia-branch">
+            <div class="ia-branch-label">HOME</div>
+            <div class="ia-leaves">
+              <span class="ia-leaf">Search &amp; Scan</span>
+              <span class="ia-leaf">Eco Credits Balance</span>
+              <span class="ia-leaf">Top Picks</span>
+              <span class="ia-leaf">Promotions</span>
+            </div>
+          </div>
+          <div class="ia-branch">
+            <div class="ia-branch-label">SHOP</div>
+            <div class="ia-leaves">
+              <span class="ia-leaf">Category</span>
+              <span class="ia-leaf">Products</span>
+              <span class="ia-leaf">Product Details</span>
+              <span class="ia-leaf">Add to Cart</span>
+            </div>
+          </div>
+          <div class="ia-branch">
+            <div class="ia-branch-label">CART</div>
+            <div class="ia-leaves">
+              <span class="ia-leaf">Shopping Bag</span>
+              <span class="ia-leaf">Buy Now</span>
+              <span class="ia-leaf">Checkout</span>
+            </div>
+          </div>
+          <div class="ia-branch">
+            <div class="ia-branch-label">AI</div>
+            <div class="ia-leaves">
+              <span class="ia-leaf">Chatbot</span>
+              <span class="ia-leaf">Add Items to Cart</span>
+            </div>
+          </div>
+          <div class="ia-branch">
+            <div class="ia-branch-label">ACCOUNT</div>
+            <div class="ia-leaves">
+              <span class="ia-leaf">Member Rewards</span>
+              <span class="ia-leaf">Ranking</span>
+              <span class="ia-leaf">Purchase History</span>
+              <span class="ia-leaf">Wallet</span>
+              <span class="ia-leaf">Sign Out</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <hr class="divider-line">
+ 
+  <!-- ══════════════════════════════════════════
+       INTERFACE DESIGN — image placeholders
+  ══════════════════════════════════════════ -->
+  <section>
+    <div class="section-label reveal">
+      <span class="section-zh">核心界面</span>
+      <span class="section-en">Key Interface Design</span>
+    </div>
+
+    <p class="interface-intro reveal">六个核心界面展示 Greenify 的完整购物流程: <br> 从浏览主页、商品分类、购物车，到订单结算、个人中心与 AI 助手。</p>
+    <div class="interface-img-grid">
+  <div class="interface-img-slot">
+    <img src="image/keyinterface.png" alt="Key Interface Design" style="width:100%; height:auto; display:block;">
   </div>
-
-  <!--img-->
-  <div class="project-grid">
-      <img src = 'image/project2-1_1920.png' srcset = 'image/project2-1_1920.png 1920w, image/project2-1_960.png 960w, image/project2-1_480.png 480w' alt = 'project2-1'>
-      <img src = 'image/project2-2_1920.png' srcset = 'image/project2-2_1920.png 1920w, image/project2-2_960.png 960w, image/project2-2_480.png 480w' alt = 'project2-2'>
-      <img src = 'image/project2-3_1920.png' srcset = 'image/project2-3_1920.png 1920w, image/project2-3_960.png 960w, image/project2-3_480.png 480w' alt = 'project2-3'>
-  </div>
-
-
+</div>
+  </section>
+ 
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</div>
 
 <!--light svg-->
-<div id = 'lighticon'>
+<div id = 'lighticon' style = "visibility: hidden;">
 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="51" viewBox="0 0 36 51" fill="none">
   <path d="M17.7326 36.5194C15.0679 36.5194 12.4033 36.5235 9.73707 36.5166C8.78926 36.5138 7.69041 36.4527 7.77055 35.3204C8.06183 31.1427 5.36481 28.0154 3.23647 24.7255C-2.83106 15.3518 1.51808 4.31517 13.0521 1.17672C24.1238 -1.83531 34.5435 5.6239 35.197 15.0295C35.4944 19.3086 33.8608 22.9458 31.435 26.4427C29.5779 29.1213 27.6129 31.7651 27.9844 35.187C28.103 36.2818 27.1598 36.5138 26.1458 36.5138C23.3409 36.5124 23.9528 36.5415 21.1464 36.5415L17.7295 36.5208L17.7326 36.5194Z" fill="url(#paint0_radial_180_328)" stroke="black" stroke-miterlimit="10"/>
   <path d="M17.9402 41.0297C15.7029 41.0297 13.464 41.0328 11.2266 41.0297C10.0864 41.0266 8.99083 40.7693 9.02011 39.3902C9.0463 38.1652 10.0556 37.8555 11.1296 37.8555C15.8153 37.8509 20.4996 37.8509 25.1854 37.8555C26.2624 37.8555 27.2717 38.1729 27.2902 39.3948C27.3102 40.7647 26.2147 41.0282 25.0729 41.0313C22.6953 41.0359 20.3178 41.0313 17.9402 41.0328V41.0297Z" fill="url(#paint1_linear_180_328)" stroke="black" stroke-miterlimit="10"/>
@@ -56,7 +821,7 @@
   </defs>
 </svg>
 </div>
-</main>
+
 
 <!--homepage logo-->
   <footer id = 'homepage'>
@@ -80,6 +845,5 @@
 
 <script src="script.js"></script>
 
-  </body>
 
 </html>

@@ -5,32 +5,954 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="16x16" href="image/favicon16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon32.png">
-    <title>Project1:Greenify</title>
+    <title>Project1:Limeo</title>
     <link rel = 'stylesheet' href = 'style.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&family=Cormorant+Garamond:wght@300..700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
-</head>
+    <style>
+    :root {
+      --green: #C8F135;
+      --green-dim: #a0c020;
+      --bg: #1E1E1E;
+      --bg-card: #252525;
+      --bg-lighter: #2d2d2d;
+      --text: #f0f0f0;
+      --text-muted: #888;
+      --border: rgba(200,241,53,0.15);
+    }
+ 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+ 
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+ 
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 80px 8vw;
+      gap: 60px;
+      position: relative;
+      overflow: hidden;
+    }
+ 
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(200,241,53,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+ 
+    .hero-left { animation: fadeUp 0.8s ease both; }
+ 
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 24px; height: 1px;
+      background: var(--green);
+    }
+ 
+    .hero-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(72px, 10vw, 120px);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .hero-logo span {
+      color: var(--green);
+    }
+ 
+    .hero-tagline {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(11px, 1.2vw, 14px);
+      letter-spacing: 0.1em;
+      color: var(--green);
+      text-transform: uppercase;
+      font-style: italic;
+      margin-bottom: 28px;
+    }
+ 
+    .hero-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 420px;
+      line-height: 1.8;
+    }
+ 
+    .hero-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+ 
+    .phone-stack {
+      position: relative;
+      width: 260px;
+      height: 420px;
+    }
+ 
+    .phone-mock {
+      position: absolute;
+      width: 220px;
+      background: #111;
+      border-radius: 36px;
+      border: 1.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+ 
+    .phone-mock.p1 {
+      left: 0; top: 20px;
+      transform: rotate(-6deg);
+      z-index: 1;
+    }
+    .phone-mock.p2 {
+      left: 40px; top: 0;
+      z-index: 3;
+    }
+    .phone-mock.p3 {
+      left: 80px; top: 30px;
+      transform: rotate(5deg);
+      z-index: 2;
+    }
+ 
+    .phone-screen {
+      padding: 20px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+ 
+    .phone-statusbar {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      color: #aaa;
+      font-family: 'Space Mono', monospace;
+      margin-bottom: 4px;
+    }
+ 
+    /* Phone 1 - splash */
+    .splash-logo {
+      margin: auto;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .splash-logo-icon {
+      width: 48px; height: 48px;
+      background: rgba(200,241,53,0.1);
+      border: 1.5px solid var(--green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 10px;
+    }
+    .splash-logo-icon svg { width: 24px; height: 24px; }
+    .splash-title {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: #aaa;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .splash-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--green);
+      letter-spacing: 0.05em;
+    }
+    .splash-wave {
+      margin-top: 12px;
+    }
+    .splash-wave svg { width: 100%; }
+    .splash-sub {
+      font-size: 8px;
+      color: #555;
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+ 
+    /* Phone 2 - signin */
+    .signin-title { font-size: 13px; font-weight: 500; color: #eee; }
+    .signin-sub { font-size: 9px; color: #666; }
+    .tab-row {
+      display: flex;
+      background: #1a1a1a;
+      border-radius: 8px;
+      padding: 3px;
+      gap: 3px;
+    }
+    .tab { flex: 1; text-align: center; padding: 5px; font-size: 9px; border-radius: 6px; color: #666; }
+    .tab.active { background: #333; color: #eee; }
+    .apple-btn {
+      background: #eee; color: #111;
+      border-radius: 8px; padding: 8px;
+      font-size: 9px; text-align: center;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+    }
+    .divider { display: flex; align-items: center; gap: 6px; }
+    .divider span { font-size: 8px; color: #444; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #333; }
+    .input-mock {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 7px 10px;
+      font-size: 9px;
+      color: #555;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .forgot { font-size: 8px; color: var(--green); text-align: right; }
+    .cta-btn {
+      background: var(--green);
+      color: #111;
+      border-radius: 8px;
+      padding: 9px;
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+ 
+    /* Phone 3 - permissions */
+    .perm-step { font-size: 8px; color: #555; letter-spacing: 0.1em; text-transform: uppercase; }
+    .perm-title { font-size: 15px; font-weight: 600; color: #eee; }
+    .perm-sub { font-size: 8px; color: #555; line-height: 1.5; }
+    .perm-item {
+      background: #1a1a1a;
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .perm-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; flex-shrink: 0;
+    }
+    .perm-icon.health { background: #ff3b5c22; color: #ff3b5c; }
+    .perm-icon.bt { background: #2065f822; color: #2065f8; }
+    .perm-icon.notif { background: #55555522; color: #aaa; }
+    .perm-info { flex: 1; }
+    .perm-name { font-size: 9px; color: #ddd; font-weight: 500; }
+    .perm-status { font-size: 8px; color: var(--green); }
+    .perm-desc { font-size: 7px; color: #444; line-height: 1.4; margin-top: 2px; }
+    .toggle {
+      width: 24px; height: 14px;
+      border-radius: 7px;
+      display: flex; align-items: center;
+      padding: 2px;
+    }
+    .toggle.on { background: var(--green); justify-content: flex-end; }
+    .toggle.off { background: #333; justify-content: flex-start; }
+    .toggle-thumb { width: 10px; height: 10px; border-radius: 50%; background: #fff; }
+ 
+    /* ── SECTION WRAPPER ── */
+    section {
+      padding: 80px 8vw;
+    }
+ 
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .section-label-zh {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: 0.05em;
+      color: var(--text);
+    }
+    .section-label-en {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(10px, 1.2vw, 13px);
+      color: var(--text-muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding-top: 4px;
+    }
+ 
+    /* ── RESEARCH SECTION ── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+ 
+    .research-col h3 {
+      font-family: 'Space Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+ 
+    .stat-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .stat-pct {
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--green);
+      min-width: 36px;
+    }
+    .bar-track {
+      flex: 1;
+      height: 6px;
+      background: #2a2a2a;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 3px;
+      transition: width 1s ease;
+    }
+    .stat-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      padding-left: 48px;
+    }
+ 
+    .interview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .interview-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      line-height: 1.8;
+    }
+    .interview-quote {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.8;
+      border-left: 2px solid var(--green);
+      padding-left: 14px;
+      font-style: italic;
+    }
+ 
+    .problem-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .problem-box p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.9;
+    }
+    .problem-box p em {
+      color: var(--green);
+      font-style: normal;
+    }
+ 
+    .chart-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .chart-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .chart-svg { width: 100%; }
+ 
+    /* ── INSIGHT & TARGET ── */
+    .insight-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+ 
+    .insight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .insight-card .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-bottom: 14px;
+    }
+    .insight-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .insight-card p {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+ 
+    .target-block {
+      background: linear-gradient(135deg, rgba(200,241,53,0.05) 0%, transparent 60%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    .target-age {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 5vw, 64px);
+      color: var(--green);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .target-desc { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+ 
+    /* ── SOLUTIONS ── */
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    .solution-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .solution-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--green);
+      opacity: 0.5;
+    }
+    .solution-phase {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .solution-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .solution-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .solution-features li {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      gap: 8px;
+    }
+    .solution-features li::before {
+      content: '·';
+      color: var(--green);
+      font-size: 16px;
+      line-height: 1.2;
+    }
+    .solution-desc {
+      font-size: 11px;
+      color: #555;
+      line-height: 1.7;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 14px;
+    }
+ 
+    /* mini app screens in solution cards */
+    .mini-screen {
+      background: #111;
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+      border: 1px solid #2a2a2a;
+      font-size: 10px;
+      color: #888;
+    }
+    .mini-screen-title { color: var(--green); font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; font-family: 'Space Mono', monospace; }
+    .mini-metric { display: flex; justify-content: space-between; margin-bottom: 4px; }
+    .mini-metric .val { color: var(--text); font-weight: 500; }
+    .mini-risk { text-align: center; padding: 6px; border-radius: 6px; font-weight: 700; font-size: 11px; margin-top: 6px; }
+    .risk-low { background: rgba(200,241,53,0.15); color: var(--green); }
+    .risk-high { background: rgba(255,59,59,0.15); color: #ff3b3b; }
+    .mini-bignum { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--green); line-height: 1; }
+    .mini-live { display: inline-block; background: var(--green); color: #111; font-size: 7px; font-weight: 700; padding: 1px 5px; border-radius: 3px; margin-bottom: 4px; }
+    .alert-box { background: rgba(255,200,0,0.08); border: 1px solid rgba(255,200,0,0.2); border-radius: 6px; padding: 6px 8px; margin-top: 6px; }
+    .alert-title { color: #ffc800; font-size: 9px; font-weight: 700; }
+    .alert-desc { color: #777; font-size: 8px; line-height: 1.4; margin-top: 2px; }
+    .mini-chart { height: 30px; margin: 6px 0; }
+    .mini-rec-title { font-size: 9px; color: var(--green); font-family: 'Space Mono', monospace; margin-bottom: 4px; }
+    .mini-rec-item { font-size: 8px; color: #666; padding: 3px 0; border-bottom: 1px solid #1a1a1a; }
+ 
+    /* ── INTERFACE SECTION ── */
+    .interface-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .interface-block { }
+    .interface-block h3 {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--green);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .interface-block p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .interface-block ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .interface-block ul li {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .interface-block ul li::before {
+      content: '—';
+      color: var(--green);
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+ 
+    .workout-states {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .state-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid var(--border);
+    }
+    .state-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .state-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .state-dot.green { background: var(--green); }
+    .state-dot.yellow { background: #ffc800; }
+    .state-dot.red { background: #ff3b3b; }
+    .state-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .state-label.green { color: var(--green); }
+    .state-label.yellow { color: #ffc800; }
+    .state-label.red { color: #ff3b3b; }
+    .state-timer {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+    }
+    .state-timer.green { color: var(--green); }
+    .state-timer.yellow { color: #ffc800; }
+    .state-timer.red { color: #ff3b3b; }
+    .state-risk {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+    .state-rec {
+      margin-top: 8px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 9px;
+      font-weight: 700;
+    }
+    .state-rec.green { background: rgba(200,241,53,0.15); color: var(--green); }
+    .state-rec.yellow { background: rgba(255,200,0,0.1); color: #ffc800; }
+    .state-rec.red { background: rgba(255,59,59,0.15); color: #ff3b3b; }
+ 
+    /* ── DIVIDER ── */
+    .divider-line {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin: 0 8vw;
+    }
+ 
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+ 
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+ 
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 60px 6vw; }
+      .phone-stack { display: none; }
+      .research-grid, .solutions-grid, .interface-grid { grid-template-columns: 1fr; }
+      .insight-grid { grid-template-columns: 1fr 1fr; }
+      .workout-states { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  </head>
 
   <body>
   <main>
   <!--title-->
   <div class="title">
-  <h1>Project1:Greenify</h1>
+  <h1>Project1:Limeo</h1>
   </div>
 
-  <!--img-->
-  <div class="project-grid">
-      <img src = 'image/project1_1920.png' srcset = 'image/project1_1920.png 1920w, image/project1_960.png 960w, image/project1_480.png 480w' alt = 'project1-1'>
-      <img src = 'image/project1-2_1920.png' srcset = 'image/project1-2_1920.png 1920w, image/project1-2_960.png 960w, image/project1-2_480.png 480w' alt = 'project1-2'>
-      <img src = 'image/project1-3_1920.png' srcset = 'image/project1-3_1920.png 1920w, image/project1-3_960.png 960w, image/project1-3_480.png 480w' alt = 'project1-3'>
-  </div>
+<body>
+ 
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">UX Design · Wearable Health System</div>
+      <a href="https://www.figma.com/make/Q3kYQ4Edj7UHTbAGQ5zCou/Limeo?fullscreen=1&t=smFQC3nHEDscFmkX-1&preview-route=%2Flogin" style="text-decoration: none;">
+  <div class="hero-logo">Lime<span>o</span></div></a>
+      <div class="hero-tagline">Sense Fatigue. Prevent Injury.</div>
+      <p class="hero-desc">
+        Limeo 是一个帮助高强度运动用户识别疲劳风险的系统。
+        <br>它将不可见的身体负荷转化为可理解的洞察,
+        <br>从而支持更安全的训练与恢复。
+      </p>
+    </div>
+    <div class="hero-right">
+      <img class="hero-phones-img" src="image/Group100.png" alt="Limeo App Screens" width="700" height="auto">
+    </div>
+  </section>
+ 
+  <hr class="divider-line">
+ 
+  <!-- ══════════════════════════════════════════
+       RESEARCH
+  ══════════════════════════════════════════ -->
+  <section>
+    <div class="section-label reveal">
+      <span class="section-label-zh">研究背景</span>
+      <span class="section-label-en">Research &amp; Problem</span>
+    </div>
+ 
+    <div class="research-grid reveal">
+      <!-- LEFT -->
+      <div class="research-col">
+        <h3>A. 数据调研 Data Research</h3>
+        <div>
+          <div class="stat-bar">
+            <div class="stat-pct">67%</div>
+            <div class="bar-track"><div class="bar-fill" style="width:67%"></div></div>
+          </div>
+          <div class="stat-desc">的受访者表示在高强度运动中曾忽视疲劳继续运动</div>
+        </div>
+        <div style="margin-top:14px;">
+          <div class="stat-bar">
+            <div class="stat-pct">58%</div>
+            <div class="bar-track"><div class="bar-fill" style="width:58%"></div></div>
+          </div>
+          <div class="stat-desc">的受访者表示曾因疲劳累积出现受伤或险些受伤</div>
+        </div>
+        <div style="margin-top:14px;">
+          <div class="stat-bar">
+            <div class="stat-pct">72%</div>
+            <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+          </div>
+          <div class="stat-desc">的受访者表示如果有疲劳风险提醒系统会愿意使用</div>
+        </div>
+ 
+        <div style="margin-top:32px;">
+          <h3>B. 用户访谈 User Interview</h3>
+          <div class="interview-card" style="margin-top:12px;">
+            <div class="interview-meta">
+              姓名：Lina &nbsp;年龄：27<br>
+              活动：滑雪爱好者 &nbsp;经验：5年
+            </div>
+            <div class="interview-quote">
+              "有一次在滑雪的时候其实已经感觉腿有点发软，但我还是想再尝试滑一趟。结果在转弯时失去控制导致韧带受伤。现在回想起来，身体那时候可能早就已经到极限了。"
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- RIGHT -->
+      <div class="research-col">
+        <h3>问题陈述 Problem Statements</h3>
+        <div class="problem-box">
+          <p>
+            许多运动损伤并不是发生在明显疲劳时，而是在疲劳逐渐累积但用户尚未察觉的阶段。当身体<em>真实疲惫状态</em>与<em>主观感知</em>之间出现偏差时，受伤风险会显著增加。
+          </p>
+        </div>
+        <div class="chart-container">
+          <div class="chart-title">疲劳感知偏差示意图</div>
+          <svg class="chart-svg" viewBox="0 0 300 130" xmlns="http://www.w3.org/2000/svg">
+            <!-- axes -->
+            <line x1="30" y1="10" x2="30" y2="110" stroke="#333" stroke-width="1"/>
+            <line x1="30" y1="110" x2="290" y2="110" stroke="#333" stroke-width="1"/>
+            <!-- labels -->
+            <text x="10" y="14" fill="#666" font-size="8" font-family="monospace">Fatigue</text>
+            <text x="250" y="122" fill="#666" font-size="8" font-family="monospace">Time</text>
+            <!-- Actual fatigue risk (green, curves up steeply) -->
+            <path d="M30,100 Q100,95 160,70 Q210,45 280,15" stroke="#C8F135" stroke-width="1.5" fill="none"/>
+            <!-- Perceived fatigue (muted, slower curve) -->
+            <path d="M30,100 Q130,98 200,85 Q240,75 280,55" stroke="#555" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+            <!-- gap shading -->
+            <path d="M30,100 Q100,95 160,70 Q210,45 280,15 L280,55 Q240,75 200,85 Q130,98 30,100 Z" fill="rgba(200,241,53,0.04)"/>
+            <!-- legend -->
+            <line x1="35" y1="125" x2="55" y2="125" stroke="#C8F135" stroke-width="1.5"/>
+            <text x="58" y="128" fill="#C8F135" font-size="7">Actual Fatigue Risk</text>
+            <line x1="155" y1="125" x2="175" y2="125" stroke="#555" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <text x="178" y="128" fill="#666" font-size="7">Perceived Fatigue</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <hr class="divider-line">
+ 
+  <!-- ══════════════════════════════════════════
+       TARGET + INSIGHTS
+  ══════════════════════════════════════════ -->
+  <section>
+    <div class="section-label reveal">
+      <span class="section-label-zh">洞察与目标</span>
+      <span class="section-label-en">Insights &amp; Target</span>
+    </div>
+ 
+    <div class="target-block reveal">
+      <div class="target-age">18–35</div>
+      <div>
+        <div style="font-size:18px; font-weight:600; margin-bottom:8px;">岁高强度运动爱好者</div>
+        <div class="target-desc">这些用户在运动过程中往往容易"硬撑"，很难及时意识到身体已经接近不安全的疲劳状态。</div>
+      </div>
+    </div>
+ 
+    <div class="insight-grid reveal">
+      <div class="insight-card">
+        <div class="dot"></div>
+        <h4>Fatigue Awareness Gap</h4>
+        <p>难以及时感知疲劳状态</p>
+      </div>
+      <div class="insight-card">
+        <div class="dot"></div>
+        <h4>Overtraining Risk</h4>
+        <p>高负荷下仍继续运动</p>
+      </div>
+      <div class="insight-card">
+        <div class="dot"></div>
+        <h4>Unclear Decisions</h4>
+        <p>恢复缺乏数据参考</p>
+      </div>
+    </div>
+ 
+    <div style="margin-top:40px;" class="reveal">
+      <div class="problem-box">
+        <p style="font-size:15px;">
+          <strong style="color:var(--text);">核心洞察</strong><br><br>
+          人类对疲劳的感知往往具有<em>滞后性</em>。<br>
+          如果隐藏的疲劳信号能够被更早识别，用户就能在运动过程中做出更安全的决策。
+        </p>
+      </div>
+    </div>
+  </section>
+ 
+  <hr class="divider-line">
+ 
+  <!-- ══════════════════════════════════════════
+       SOLUTIONS
+  ══════════════════════════════════════════ -->
+  <section>
+    <div class="section-label reveal">
+      <span class="section-label-zh">解决方案</span>
+      <span class="section-label-en">Solutions</span>
+    </div>
+ 
+    <div class="solutions-grid reveal">
+      <!-- Before -->
+      <div class="solution-card">
+        <div class="solution-phase">运动前 · Before Exercise</div>
+        <div class="solution-title">查看每日状态 · 快速开始运动</div>
+        <div class="mini-screen">
+          <div class="mini-screen-title">Today's Status</div>
+          <div class="mini-risk risk-low" style="margin-bottom:6px;">⬆ Elevated Risk</div>
+          <div class="mini-metric"><span>Phys. Strain</span><span class="val">64</span></div>
+          <div class="mini-metric"><span>Cumulative Load</span><span class="val">58</span></div>
+          <div class="mini-metric"><span>Recovery Deficit</span><span class="val">38</span></div>
+          <div class="mini-metric"><span>Motor Stability</span><span class="val">72</span></div>
+        </div>
+        <ul class="solution-features">
+          <li>每日身体状态评估</li>
+          <li>恢复程度与疲劳风险评分</li>
+          <li>一键开始运动记录</li>
+        </ul>
+        <div class="solution-desc">用户可以查看每日身体状态与恢复情况，并一键开始运动记录。</div>
+      </div>
+ 
+      <!-- During -->
+      <div class="solution-card">
+        <div class="solution-phase">运动中 · During Exercise</div>
+        <div class="solution-title">实时监测 · 风险提醒</div>
+        <div class="mini-screen">
+          <div class="mini-screen-title">Muscle Fatigue</div>
+          <div class="mini-live">LIVE</div>
+          <div class="mini-bignum">64</div>
+          <svg class="mini-chart" viewBox="0 0 160 30" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="0,20 20,18 40,15 60,17 80,12 100,14 120,8 140,10 160,6" stroke="#C8F135" stroke-width="1.5" fill="none"/>
+          </svg>
+          <div class="alert-box">
+            <div class="alert-title">⚠ Fatigue Rising</div>
+            <div class="alert-desc">Your body load is increasing. Consider slowing down to prevent fatigue buildup.</div>
+          </div>
+        </div>
+        <ul class="solution-features">
+          <li>实时疲劳分数监控</li>
+          <li>趋势图与区间提示</li>
+          <li>弹窗风险警报</li>
+        </ul>
+        <div class="solution-desc">系统实时监测疲劳风险，并在负荷过高时通过弹窗进行提醒。</div>
+      </div>
+ 
+      <!-- After -->
+      <div class="solution-card">
+        <div class="solution-phase">运动后 · After Exercise</div>
+        <div class="solution-title">疲劳总结 · AI 恢复建议</div>
+        <div class="mini-screen">
+          <div class="mini-screen-title">Risk Peak · 72%</div>
+          <svg class="mini-chart" viewBox="0 0 160 35" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="0,30 20,28 40,22 60,15 80,8 100,12 120,18 140,22 160,25" stroke="#C8F135" stroke-width="1.5" fill="none"/>
+            <circle cx="80" cy="8" r="3" fill="#C8F135"/>
+          </svg>
+          <div class="mini-rec-title">Recovery Recommendation</div>
+          <div class="mini-rec-item">Avoid another high-intensity workout today</div>
+          <div class="mini-rec-item">Allow at least 8 hours for recovery</div>
+          <div class="mini-rec-item">Light stretching recommended</div>
+        </div>
+        <ul class="solution-features">
+          <li>疲劳变化趋势回顾</li>
+          <li>风险峰值时间点标注</li>
+          <li>AI 生成恢复建议</li>
+        </ul>
+        <div class="solution-desc">App 总结本次运动中的疲劳变化，并通过 AI 生成恢复建议。</div>
+      </div>
+    </div>
+  </section>
+ 
+  <hr class="divider-line">
+ 
+  <!-- ══════════════════════════════════════════
+       INTERFACE DESIGN
+  ══════════════════════════════════════════ -->
+  <section>
+    <div class="section-label reveal">
+      <span class="section-label-zh">界面展示</span>
+      <span class="section-label-en">Interface Design</span>
+    </div>
+ 
+    <!-- Workout states -->
+    <div style="margin-bottom:48px;" class="reveal">
+      <img class="hero-phones-img" src="image/page.png" alt="Limeo App Screens" width=100% height="auto">
+
+    </div>
+  </section>
+ 
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
 
 
 
   
 <!--light svg-->
-<div id = 'lighticon'>
+<div id = 'lighticon' style = "visibility: hidden;">
 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="51" viewBox="0 0 36 51" fill="none">
   <path d="M17.7326 36.5194C15.0679 36.5194 12.4033 36.5235 9.73707 36.5166C8.78926 36.5138 7.69041 36.4527 7.77055 35.3204C8.06183 31.1427 5.36481 28.0154 3.23647 24.7255C-2.83106 15.3518 1.51808 4.31517 13.0521 1.17672C24.1238 -1.83531 34.5435 5.6239 35.197 15.0295C35.4944 19.3086 33.8608 22.9458 31.435 26.4427C29.5779 29.1213 27.6129 31.7651 27.9844 35.187C28.103 36.2818 27.1598 36.5138 26.1458 36.5138C23.3409 36.5124 23.9528 36.5415 21.1464 36.5415L17.7295 36.5208L17.7326 36.5194Z" fill="url(#paint0_radial_180_328)" stroke="black" stroke-miterlimit="10"/>
   <path d="M17.9402 41.0297C15.7029 41.0297 13.464 41.0328 11.2266 41.0297C10.0864 41.0266 8.99083 40.7693 9.02011 39.3902C9.0463 38.1652 10.0556 37.8555 11.1296 37.8555C15.8153 37.8509 20.4996 37.8509 25.1854 37.8555C26.2624 37.8555 27.2717 38.1729 27.2902 39.3948C27.3102 40.7647 26.2147 41.0282 25.0729 41.0313C22.6953 41.0359 20.3178 41.0313 17.9402 41.0328V41.0297Z" fill="url(#paint1_linear_180_328)" stroke="black" stroke-miterlimit="10"/>

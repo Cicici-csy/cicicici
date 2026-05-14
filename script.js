@@ -65,4 +65,15 @@ document.addEventListener('mousemove', (e) => {
 
 }
 
+const title = document.querySelector('.title');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    title.style.opacity = '0';
+    title.style.transform = 'translateY(-20px)';
+  } else {
+    title.style.opacity = '1';
+    title.style.transform = 'translateY(0)';
+  }
+});
+
 
