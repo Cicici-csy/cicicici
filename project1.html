@@ -527,6 +527,7 @@
       font-size: 10px;
       color: #888;
     }
+
     .mini-screen-title { color: var(--green); font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; font-family: 'Space Mono', monospace; }
     .mini-metric { display: flex; justify-content: space-between; margin-bottom: 4px; }
     .mini-metric .val { color: var(--text); font-weight: 500; }
@@ -668,6 +669,22 @@
       .insight-grid { grid-template-columns: 1fr 1fr; }
       .workout-states { grid-template-columns: 1fr; }
     }
+
+    #function1{
+      margin-left: 30px;
+      margin-top: 20px;
+    }
+
+    #function2{
+      margin-top:20px;
+      margin-bottom: -20px;
+    }
+
+    #function3{
+      margin-top:20px;
+      margin-left: 30px;
+    }
+
   </style>
 
   </head>
@@ -691,7 +708,7 @@
   <div class="hero-logo">Lime<span>o</span></div></a>
       <div class="hero-tagline">Sense Fatigue. Prevent Injury.</div>
       <p class="hero-desc">
-        Limeo 是一个帮助高强度运动用户识别疲劳风险的系统。
+        一个帮助高强度运动用户识别疲劳风险的系统。
         <br>它将不可见的身体负荷转化为可理解的洞察,
         <br>从而支持更安全的训练与恢复。
       </p>
@@ -757,7 +774,7 @@
         <h3>问题陈述 Problem Statements</h3>
         <div class="problem-box">
           <p>
-            许多运动损伤并不是发生在明显疲劳时，而是在疲劳逐渐累积但用户尚未察觉的阶段。当身体<em>真实疲惫状态</em>与<em>主观感知</em>之间出现偏差时，受伤风险会显著增加。
+            许多运动损伤并不是发生在明显疲劳时，而是在疲劳逐渐累积但用户尚未察觉的阶段。当身体<em>真实疲惫状态</em>与<em>主观感知</em>之间出现偏差时，<br>受伤风险会显著增加。
           </p>
         </div>
         <div class="chart-container">
@@ -851,12 +868,7 @@
         <div class="solution-phase">运动前 · Before Exercise</div>
         <div class="solution-title">查看每日状态 · 快速开始运动</div>
         <div class="mini-screen">
-          <div class="mini-screen-title">Today's Status</div>
-          <div class="mini-risk risk-low" style="margin-bottom:6px;">⬆ Elevated Risk</div>
-          <div class="mini-metric"><span>Phys. Strain</span><span class="val">64</span></div>
-          <div class="mini-metric"><span>Cumulative Load</span><span class="val">58</span></div>
-          <div class="mini-metric"><span>Recovery Deficit</span><span class="val">38</span></div>
-          <div class="mini-metric"><span>Motor Stability</span><span class="val">72</span></div>
+          <img id = "function1" src = 'image/function1.png' width=100% height=auto>
         </div>
         <ul class="solution-features">
           <li>每日身体状态评估</li>
@@ -871,16 +883,7 @@
         <div class="solution-phase">运动中 · During Exercise</div>
         <div class="solution-title">实时监测 · 风险提醒</div>
         <div class="mini-screen">
-          <div class="mini-screen-title">Muscle Fatigue</div>
-          <div class="mini-live">LIVE</div>
-          <div class="mini-bignum">64</div>
-          <svg class="mini-chart" viewBox="0 0 160 30" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="0,20 20,18 40,15 60,17 80,12 100,14 120,8 140,10 160,6" stroke="#C8F135" stroke-width="1.5" fill="none"/>
-          </svg>
-          <div class="alert-box">
-            <div class="alert-title">⚠ Fatigue Rising</div>
-            <div class="alert-desc">Your body load is increasing. Consider slowing down to prevent fatigue buildup.</div>
-          </div>
+          <img id = "function2" src = 'image/function2.png' width=100% height=auto>
         </div>
         <ul class="solution-features">
           <li>实时疲劳分数监控</li>
@@ -895,15 +898,7 @@
         <div class="solution-phase">运动后 · After Exercise</div>
         <div class="solution-title">疲劳总结 · AI 恢复建议</div>
         <div class="mini-screen">
-          <div class="mini-screen-title">Risk Peak · 72%</div>
-          <svg class="mini-chart" viewBox="0 0 160 35" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="0,30 20,28 40,22 60,15 80,8 100,12 120,18 140,22 160,25" stroke="#C8F135" stroke-width="1.5" fill="none"/>
-            <circle cx="80" cy="8" r="3" fill="#C8F135"/>
-          </svg>
-          <div class="mini-rec-title">Recovery Recommendation</div>
-          <div class="mini-rec-item">Avoid another high-intensity workout today</div>
-          <div class="mini-rec-item">Allow at least 8 hours for recovery</div>
-          <div class="mini-rec-item">Light stretching recommended</div>
+        <img id = 'function3'src = 'image/function3.png' width=80% height=auto>
         </div>
         <ul class="solution-features">
           <li>疲劳变化趋势回顾</li>
