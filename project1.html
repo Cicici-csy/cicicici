@@ -6,10 +6,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="image/favicon16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="image/favicon32.png">
     <title>Project1:Limeo</title>
-    <link rel = 'stylesheet' href = 'style.css'>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Battambang:wght@100;300;400;700;900&family=Cormorant+Garamond:wght@300..700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
     :root {
       --green: #C8F135;
@@ -21,9 +21,9 @@
       --text-muted: #888;
       --border: rgba(200,241,53,0.15);
     }
- 
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
- 
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -31,7 +31,14 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
- 
+
+    /* ── SPACING UTILITIES ── */
+    .mt-12 { margin-top: 12px; }
+    .mt-14 { margin-top: 14px; }
+    .mt-32 { margin-top: 32px; }
+    .mt-40 { margin-top: 40px; }
+    .mb-48 { margin-bottom: 48px; }
+
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
@@ -43,7 +50,7 @@
       position: relative;
       overflow: hidden;
     }
- 
+
     .hero::before {
       content: '';
       position: absolute;
@@ -51,9 +58,9 @@
       background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(200,241,53,0.04) 0%, transparent 70%);
       pointer-events: none;
     }
- 
+
     .hero-left { animation: fadeUp 0.8s ease both; }
- 
+
     .hero-tag {
       display: inline-flex;
       align-items: center;
@@ -71,7 +78,7 @@
       width: 24px; height: 1px;
       background: var(--green);
     }
- 
+
     .hero-logo {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(72px, 10vw, 120px);
@@ -83,7 +90,7 @@
     .hero-logo span {
       color: var(--green);
     }
- 
+
     .hero-tagline {
       font-family: 'Space Mono', monospace;
       font-size: clamp(11px, 1.2vw, 14px);
@@ -93,14 +100,14 @@
       font-style: italic;
       margin-bottom: 28px;
     }
- 
+
     .hero-desc {
       font-size: 15px;
       color: var(--text-muted);
       max-width: 420px;
       line-height: 1.8;
     }
- 
+
     .hero-right {
       display: flex;
       justify-content: center;
@@ -108,13 +115,13 @@
       position: relative;
       animation: fadeUp 0.8s 0.2s ease both;
     }
- 
+
     .phone-stack {
       position: relative;
       width: 260px;
       height: 420px;
     }
- 
+
     .phone-mock {
       position: absolute;
       width: 220px;
@@ -126,7 +133,7 @@
       display: flex;
       flex-direction: column;
     }
- 
+
     .phone-mock.p1 {
       left: 0; top: 20px;
       transform: rotate(-6deg);
@@ -141,7 +148,7 @@
       transform: rotate(5deg);
       z-index: 2;
     }
- 
+
     .phone-screen {
       padding: 20px 16px;
       flex: 1;
@@ -149,7 +156,7 @@
       flex-direction: column;
       gap: 10px;
     }
- 
+
     .phone-statusbar {
       display: flex;
       justify-content: space-between;
@@ -158,7 +165,7 @@
       font-family: 'Space Mono', monospace;
       margin-bottom: 4px;
     }
- 
+
     /* Phone 1 - splash */
     .splash-logo {
       margin: auto;
@@ -197,7 +204,7 @@
       text-align: center;
       letter-spacing: 0.1em;
     }
- 
+
     /* Phone 2 - signin */
     .signin-title { font-size: 13px; font-weight: 500; color: #eee; }
     .signin-sub { font-size: 9px; color: #666; }
@@ -239,7 +246,7 @@
       text-align: center;
       letter-spacing: 0.05em;
     }
- 
+
     /* Phone 3 - permissions */
     .perm-step { font-size: 8px; color: #555; letter-spacing: 0.1em; text-transform: uppercase; }
     .perm-title { font-size: 15px; font-weight: 600; color: #eee; }
@@ -274,12 +281,12 @@
     .toggle.on { background: var(--green); justify-content: flex-end; }
     .toggle.off { background: #333; justify-content: flex-start; }
     .toggle-thumb { width: 10px; height: 10px; border-radius: 50%; background: #fff; }
- 
+
     /* ── SECTION WRAPPER ── */
     section {
       padding: 80px 8vw;
     }
- 
+
     .section-label {
       display: flex;
       align-items: center;
@@ -300,14 +307,14 @@
       text-transform: uppercase;
       padding-top: 4px;
     }
- 
+
     /* ── RESEARCH SECTION ── */
     .research-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
     }
- 
+
     .research-col h3 {
       font-family: 'Space Mono', monospace;
       font-size: 12px;
@@ -316,7 +323,7 @@
       text-transform: uppercase;
       margin-bottom: 20px;
     }
- 
+
     .stat-bar {
       display: flex;
       align-items: center;
@@ -348,7 +355,7 @@
       margin-top: 4px;
       padding-left: 48px;
     }
- 
+
     .interview-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -370,7 +377,7 @@
       padding-left: 14px;
       font-style: italic;
     }
- 
+
     .problem-box {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -387,7 +394,7 @@
       color: var(--green);
       font-style: normal;
     }
- 
+
     .chart-container {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -401,7 +408,7 @@
       margin-bottom: 16px;
     }
     .chart-svg { width: 100%; }
- 
+
     /* ── INSIGHT & TARGET ── */
     .insight-grid {
       display: grid;
@@ -409,7 +416,7 @@
       gap: 24px;
       margin-top: 40px;
     }
- 
+
     .insight-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -433,7 +440,7 @@
       color: var(--text-muted);
       line-height: 1.7;
     }
- 
+
     .target-block {
       background: linear-gradient(135deg, rgba(200,241,53,0.05) 0%, transparent 60%);
       border: 1px solid var(--border);
@@ -452,7 +459,8 @@
       white-space: nowrap;
     }
     .target-desc { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
- 
+    .target-name { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+
     /* ── SOLUTIONS ── */
     .solutions-grid {
       display: grid;
@@ -516,7 +524,7 @@
       border-top: 1px solid rgba(255,255,255,0.05);
       padding-top: 14px;
     }
- 
+
     /* mini app screens in solution cards */
     .mini-screen {
       background: #111;
@@ -542,7 +550,7 @@
     .mini-chart { height: 30px; margin: 6px 0; }
     .mini-rec-title { font-size: 9px; color: var(--green); font-family: 'Space Mono', monospace; margin-bottom: 4px; }
     .mini-rec-item { font-size: 8px; color: #666; padding: 3px 0; border-bottom: 1px solid #1a1a1a; }
- 
+
     /* ── INTERFACE SECTION ── */
     .interface-grid {
       display: grid;
@@ -580,7 +588,7 @@
       opacity: 0.5;
       flex-shrink: 0;
     }
- 
+
     .workout-states {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -637,20 +645,20 @@
     .state-rec.green { background: rgba(200,241,53,0.15); color: var(--green); }
     .state-rec.yellow { background: rgba(255,200,0,0.1); color: #ffc800; }
     .state-rec.red { background: rgba(255,59,59,0.15); color: #ff3b3b; }
- 
+
     /* ── DIVIDER ── */
     .divider-line {
       border: none;
       border-top: 1px solid rgba(255,255,255,0.06);
       margin: 0 8vw;
     }
- 
+
     /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
- 
+
     .reveal {
       opacity: 0;
       transform: translateY(20px);
@@ -660,7 +668,22 @@
       opacity: 1;
       transform: translateY(0);
     }
- 
+
+    /* ── FUNCTION IMAGES ── */
+    #function1 {
+      margin-left: 30px;
+      margin-top: 20px;
+    }
+
+    #function2 {
+      margin-top: 20px;
+    }
+
+    #function3 {
+      margin-top: 20px;
+      margin-left: 30px;
+    }
+
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; min-height: auto; padding: 60px 6vw; }
       .phone-stack { display: none; }
@@ -669,34 +692,18 @@
       .workout-states { grid-template-columns: 1fr; }
     }
 
-    #function1{
-      margin-left: 30px;
-      margin-top: 20px;
-    }
-
-    #function2{
-      margin-top:20px;
-      margin-bottom: -20px;
-    }
-
-    #function3{
-      margin-top:20px;
-      margin-left: 30px;
-    }
-
   </style>
 
   </head>
 
   <body>
   <main>
+
   <!--title-->
   <div class="title">
-  <h1>Project1:Limeo</h1>
+    <h1>Project1:Limeo</h1>
   </div>
 
-<body>
- 
   <!-- ══════════════════════════════════════════
        HERO
   ══════════════════════════════════════════ -->
@@ -704,7 +711,8 @@
     <div class="hero-left">
       <div class="hero-tag">UX Design · Wearable Health System</div>
       <a href="https://www.figma.com/make/Q3kYQ4Edj7UHTbAGQ5zCou/Limeo?fullscreen=1&t=smFQC3nHEDscFmkX-1&preview-route=%2Flogin" style="text-decoration: none;">
-  <div class="hero-logo">Lime<span>o</span></div></a>
+        <div class="hero-logo">Lime<span>o</span></div>
+      </a>
       <div class="hero-tagline">Sense Fatigue. Prevent Injury.</div>
       <p class="hero-desc">
         一个帮助高强度运动用户识别疲劳风险的系统。
@@ -716,9 +724,9 @@
       <img class="hero-phones-img" src="image/Group100.png" alt="Limeo App Screens" width="700" height="auto">
     </div>
   </section>
- 
+
   <hr class="divider-line">
- 
+
   <!-- ══════════════════════════════════════════
        RESEARCH
   ══════════════════════════════════════════ -->
@@ -727,7 +735,7 @@
       <span class="section-label-zh">研究背景</span>
       <span class="section-label-en">Research &amp; Problem</span>
     </div>
- 
+
     <div class="research-grid reveal">
       <!-- LEFT -->
       <div class="research-col">
@@ -739,24 +747,24 @@
           </div>
           <div class="stat-desc">的受访者表示在高强度运动中曾忽视疲劳继续运动</div>
         </div>
-        <div style="margin-top:14px;">
+        <div class="mt-14">
           <div class="stat-bar">
             <div class="stat-pct">58%</div>
             <div class="bar-track"><div class="bar-fill" style="width:58%"></div></div>
           </div>
           <div class="stat-desc">的受访者表示曾因疲劳累积出现受伤或险些受伤</div>
         </div>
-        <div style="margin-top:14px;">
+        <div class="mt-14">
           <div class="stat-bar">
             <div class="stat-pct">72%</div>
             <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
           </div>
           <div class="stat-desc">的受访者表示如果有疲劳风险提醒系统会愿意使用</div>
         </div>
- 
-        <div style="margin-top:32px;">
+
+        <div class="mt-32">
           <h3>B. 用户访谈 User Interview</h3>
-          <div class="interview-card" style="margin-top:12px;">
+          <div class="interview-card mt-12">
             <div class="interview-meta">
               姓名：Lina &nbsp;年龄：27<br>
               活动：滑雪爱好者 &nbsp;经验：5年
@@ -767,7 +775,7 @@
           </div>
         </div>
       </div>
- 
+
       <!-- RIGHT -->
       <div class="research-col">
         <h3>问题陈述 Problem Statements</h3>
@@ -801,9 +809,9 @@
       </div>
     </div>
   </section>
- 
+
   <hr class="divider-line">
- 
+
   <!-- ══════════════════════════════════════════
        TARGET + INSIGHTS
   ══════════════════════════════════════════ -->
@@ -812,15 +820,15 @@
       <span class="section-label-zh">洞察与目标</span>
       <span class="section-label-en">Insights &amp; Target</span>
     </div>
- 
+
     <div class="target-block reveal">
       <div class="target-age">18–35</div>
       <div>
-        <div style="font-size:18px; font-weight:600; margin-bottom:8px;">岁高强度运动爱好者</div>
+        <div class="target-name">岁高强度运动爱好者</div>
         <div class="target-desc">这些用户在运动过程中往往容易"硬撑"，很难及时意识到身体已经接近不安全的疲劳状态。</div>
       </div>
     </div>
- 
+
     <div class="insight-grid reveal">
       <div class="insight-card">
         <div class="dot"></div>
@@ -838,8 +846,8 @@
         <p>恢复缺乏数据参考</p>
       </div>
     </div>
- 
-    <div style="margin-top:40px;" class="reveal">
+
+    <div class="mt-40 reveal">
       <div class="problem-box">
         <p style="font-size:15px;">
           <strong style="color:var(--text);">核心洞察</strong><br><br>
@@ -849,9 +857,9 @@
       </div>
     </div>
   </section>
- 
+
   <hr class="divider-line">
- 
+
   <!-- ══════════════════════════════════════════
        SOLUTIONS
   ══════════════════════════════════════════ -->
@@ -860,14 +868,14 @@
       <span class="section-label-zh">解决方案</span>
       <span class="section-label-en">Solutions</span>
     </div>
- 
+
     <div class="solutions-grid reveal">
       <!-- Before -->
       <div class="solution-card">
         <div class="solution-phase">运动前 · Before Exercise</div>
         <div class="solution-title">查看每日状态 · 快速开始运动</div>
         <div class="mini-screen">
-          <img id = "function1" src = 'image/function1.png' width=100% height=auto>
+          <img id="function1" src="image/function1.png" width="100%" height="auto">
         </div>
         <ul class="solution-features">
           <li>每日身体状态评估</li>
@@ -876,13 +884,13 @@
         </ul>
         <div class="solution-desc">用户可以查看每日身体状态与恢复情况，并一键开始运动记录。</div>
       </div>
- 
+
       <!-- During -->
       <div class="solution-card">
         <div class="solution-phase">运动中 · During Exercise</div>
         <div class="solution-title">实时监测 · 风险提醒</div>
         <div class="mini-screen">
-          <img id = "function2" src = 'image/function2.png' width=100% height=auto>
+          <img id="function2" src="image/function2.png" width="100%" height="auto">
         </div>
         <ul class="solution-features">
           <li>实时疲劳分数监控</li>
@@ -891,13 +899,13 @@
         </ul>
         <div class="solution-desc">系统实时监测疲劳风险，并在负荷过高时通过弹窗进行提醒。</div>
       </div>
- 
+
       <!-- After -->
       <div class="solution-card">
         <div class="solution-phase">运动后 · After Exercise</div>
         <div class="solution-title">疲劳总结 · AI 恢复建议</div>
         <div class="mini-screen">
-        <img id = 'function3'src = 'image/function3.png' width=80% height=auto>
+          <img id="function3" src="image/function3.png" width="80%" height="auto">
         </div>
         <ul class="solution-features">
           <li>疲劳变化趋势回顾</li>
@@ -908,9 +916,9 @@
       </div>
     </div>
   </section>
- 
+
   <hr class="divider-line">
- 
+
   <!-- ══════════════════════════════════════════
        INTERFACE DESIGN
   ══════════════════════════════════════════ -->
@@ -919,14 +927,12 @@
       <span class="section-label-zh">界面展示</span>
       <span class="section-label-en">Interface Design</span>
     </div>
- 
-    <!-- Workout states -->
-    <div style="margin-bottom:48px;" class="reveal">
-      <img class="hero-phones-img" src="image/page.png" alt="Limeo App Screens" width=100% height="auto">
 
+    <div class="mb-48 reveal">
+      <img class="hero-phones-img" src="image/page.png" alt="Limeo App Screens" width="100%" height="auto">
     </div>
   </section>
- 
+
   <script>
     // Scroll reveal
     const reveals = document.querySelectorAll('.reveal');
@@ -940,62 +946,56 @@
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
   </script>
-</body>
 
+  <!--light svg-->
+  <div id="lighticon" style="visibility: hidden;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="51" viewBox="0 0 36 51" fill="none">
+      <path d="M17.7326 36.5194C15.0679 36.5194 12.4033 36.5235 9.73707 36.5166C8.78926 36.5138 7.69041 36.4527 7.77055 35.3204C8.06183 31.1427 5.36481 28.0154 3.23647 24.7255C-2.83106 15.3518 1.51808 4.31517 13.0521 1.17672C24.1238 -1.83531 34.5435 5.6239 35.197 15.0295C35.4944 19.3086 33.8608 22.9458 31.435 26.4427C29.5779 29.1213 27.6129 31.7651 27.9844 35.187C28.103 36.2818 27.1598 36.5138 26.1458 36.5138C23.3409 36.5124 23.9528 36.5415 21.1464 36.5415L17.7295 36.5208L17.7326 36.5194Z" fill="url(#paint0_radial_180_328)" stroke="black" stroke-miterlimit="10"/>
+      <path d="M17.9402 41.0297C15.7029 41.0297 13.464 41.0328 11.2266 41.0297C10.0864 41.0266 8.99083 40.7693 9.02011 39.3902C9.0463 38.1652 10.0556 37.8555 11.1296 37.8555C15.8153 37.8509 20.4996 37.8509 25.1854 37.8555C26.2624 37.8555 27.2717 38.1729 27.2902 39.3948C27.3102 40.7647 26.2147 41.0282 25.0729 41.0313C22.6953 41.0359 20.3178 41.0313 17.9402 41.0328V41.0297Z" fill="url(#paint1_linear_180_328)" stroke="black" stroke-miterlimit="10"/>
+      <path d="M18.0641 45.6231C16.1057 45.6216 14.1473 45.6355 12.1888 45.6154C11.1703 45.6047 10.3505 45.2148 10.3305 44.0699C10.3089 42.9343 11.0871 42.4628 12.1195 42.4567C16.0364 42.4335 19.9532 42.4366 23.8701 42.4489C24.8933 42.452 25.713 42.8665 25.7269 44.0006C25.7423 45.278 24.8209 45.6154 23.7315 45.6216C21.8424 45.6324 19.9548 45.6247 18.0657 45.6216L18.0641 45.6231Z" fill="url(#paint2_linear_180_328)" stroke="black" stroke-miterlimit="10"/>
+      <path d="M20.1901 50.2843C18.8326 50.5786 17.4027 50.5632 16.0421 50.2843C14.8834 50.0454 13.8309 49.6355 12.9557 48.8744C12.5274 48.503 12.1036 48.0377 12.3887 47.4984C12.6491 47.0068 13.3117 47.0392 13.8618 47.0361C16.6538 47.0238 19.4443 47.0238 22.2364 47.0361C22.8527 47.0392 23.6263 46.9775 23.8743 47.5569C24.1347 48.164 23.6062 48.6509 23.0839 49.0392C22.2194 49.6802 21.2317 50.0577 20.1901 50.2843Z" fill="url(#paint3_linear_180_328)" stroke="black" stroke-miterlimit="10"/>
+      <defs>
+        <radialGradient id="paint0_radial_180_328" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(17.8667 18.5097) scale(18.7189 16.8746)">
+          <stop stop-color="white"/>
+          <stop offset="1" stop-color="#FFF59F"/>
+        </radialGradient>
+        <linearGradient id="paint1_linear_180_328" x1="18.1559" y1="37.8509" x2="18.1559" y2="41.0313" gradientUnits="userSpaceOnUse">
+          <stop stop-color="white"/>
+          <stop offset="1" stop-color="#D7B27E"/>
+        </linearGradient>
+        <linearGradient id="paint2_linear_180_328" x1="18.0287" y1="42.4397" x2="18.0287" y2="45.6278" gradientUnits="userSpaceOnUse">
+          <stop stop-color="white"/>
+          <stop offset="1" stop-color="#D7B27E"/>
+        </linearGradient>
+        <linearGradient id="paint3_linear_180_328" x1="18.1207" y1="47.0269" x2="18.1207" y2="50.4984" gradientUnits="userSpaceOnUse">
+          <stop stop-color="white"/>
+          <stop offset="1" stop-color="#D7B27E"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
 
+  </main>
 
-  
-<!--light svg-->
-<div id = 'lighticon' style = "visibility: hidden;">
-<svg xmlns="http://www.w3.org/2000/svg" width="36" height="51" viewBox="0 0 36 51" fill="none">
-  <path d="M17.7326 36.5194C15.0679 36.5194 12.4033 36.5235 9.73707 36.5166C8.78926 36.5138 7.69041 36.4527 7.77055 35.3204C8.06183 31.1427 5.36481 28.0154 3.23647 24.7255C-2.83106 15.3518 1.51808 4.31517 13.0521 1.17672C24.1238 -1.83531 34.5435 5.6239 35.197 15.0295C35.4944 19.3086 33.8608 22.9458 31.435 26.4427C29.5779 29.1213 27.6129 31.7651 27.9844 35.187C28.103 36.2818 27.1598 36.5138 26.1458 36.5138C23.3409 36.5124 23.9528 36.5415 21.1464 36.5415L17.7295 36.5208L17.7326 36.5194Z" fill="url(#paint0_radial_180_328)" stroke="black" stroke-miterlimit="10"/>
-  <path d="M17.9402 41.0297C15.7029 41.0297 13.464 41.0328 11.2266 41.0297C10.0864 41.0266 8.99083 40.7693 9.02011 39.3902C9.0463 38.1652 10.0556 37.8555 11.1296 37.8555C15.8153 37.8509 20.4996 37.8509 25.1854 37.8555C26.2624 37.8555 27.2717 38.1729 27.2902 39.3948C27.3102 40.7647 26.2147 41.0282 25.0729 41.0313C22.6953 41.0359 20.3178 41.0313 17.9402 41.0328V41.0297Z" fill="url(#paint1_linear_180_328)" stroke="black" stroke-miterlimit="10"/>
-  <path d="M18.0641 45.6231C16.1057 45.6216 14.1473 45.6355 12.1888 45.6154C11.1703 45.6047 10.3505 45.2148 10.3305 44.0699C10.3089 42.9343 11.0871 42.4628 12.1195 42.4567C16.0364 42.4335 19.9532 42.4366 23.8701 42.4489C24.8933 42.452 25.713 42.8665 25.7269 44.0006C25.7423 45.278 24.8209 45.6154 23.7315 45.6216C21.8424 45.6324 19.9548 45.6247 18.0657 45.6216L18.0641 45.6231Z" fill="url(#paint2_linear_180_328)" stroke="black" stroke-miterlimit="10"/>
-  <path d="M20.1901 50.2843C18.8326 50.5786 17.4027 50.5632 16.0421 50.2843C14.8834 50.0454 13.8309 49.6355 12.9557 48.8744C12.5274 48.503 12.1036 48.0377 12.3887 47.4984C12.6491 47.0068 13.3117 47.0392 13.8618 47.0361C16.6538 47.0238 19.4443 47.0238 22.2364 47.0361C22.8527 47.0392 23.6263 46.9775 23.8743 47.5569C24.1347 48.164 23.6062 48.6509 23.0839 49.0392C22.2194 49.6802 21.2317 50.0577 20.1901 50.2843Z" fill="url(#paint3_linear_180_328)" stroke="black" stroke-miterlimit="10"/>
-  <defs>
-    <radialGradient id="paint0_radial_180_328" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(17.8667 18.5097) scale(18.7189 16.8746)">
-      <stop stop-color="white"/>
-      <stop offset="1" stop-color="#FFF59F"/>
-    </radialGradient>
-    <linearGradient id="paint1_linear_180_328" x1="18.1559" y1="37.8509" x2="18.1559" y2="41.0313" gradientUnits="userSpaceOnUse">
-      <stop stop-color="white"/>
-      <stop offset="1" stop-color="#D7B27E"/>
-    </linearGradient>
-    <linearGradient id="paint2_linear_180_328" x1="18.0287" y1="42.4397" x2="18.0287" y2="45.6278" gradientUnits="userSpaceOnUse">
-      <stop stop-color="white"/>
-      <stop offset="1" stop-color="#D7B27E"/>
-    </linearGradient>
-    <linearGradient id="paint3_linear_180_328" x1="18.1207" y1="47.0269" x2="18.1207" y2="50.4984" gradientUnits="userSpaceOnUse">
-      <stop stop-color="white"/>
-      <stop offset="1" stop-color="#D7B27E"/>
-    </linearGradient>
-  </defs>
-</svg>
-</div>
-</main>
+  <!--homepage logo-->
+  <footer id="homepage">
+    <a href="portfolio.html" aria-label="homepage">
+      <svg xmlns="http://www.w3.org/2000/svg" width="55" height="70" viewBox="0 0 111 140" fill="none">
+        <path d="M51.6052 91.2163C49.7978 96.6385 48.6484 102.061 46.9015 107.338C43.3322 118.113 38.2127 128.072 32.0949 137.549C30.8094 139.543 29.1835 140.008 27.6635 138.939C26.1662 137.885 26.0604 136.175 27.4745 134.265C36.3373 122.337 42.9466 109.27 47.0679 94.9355C47.5065 93.4081 48.0358 91.8883 48.0737 89.6049C46.4176 92.4229 45.2152 94.7827 43.5893 96.8676C36.7683 105.627 23.3758 106.734 15.8893 99.0594C13.3334 96.4399 11.8739 93.2324 11.647 89.5285C11.5714 88.3143 11.2386 87.4666 10.0363 86.9244C-1.31445 81.7847 -2.19921 68.0231 5.61244 59.2483C9.60523 54.7578 14.7172 52.9784 20.4266 52.3369C23.27 52.0161 26.1209 51.8787 29.1533 51.8558C28.6164 50.7408 27.6409 50.7026 26.8922 50.3895C22.6801 48.6254 18.5134 46.8001 14.929 43.8523C7.76008 37.9643 5.75612 26.5242 10.6186 18.8644C13.288 14.6565 17.2127 12.4571 22.0298 11.7316C23.1263 11.5635 24.306 11.7316 24.9185 10.2424C29.1003 0.108208 41.1392 -2.40433 50.365 4.04121C56.7928 8.5317 58.7816 15.1529 59.4622 22.4767C59.6664 24.6761 59.742 26.8908 60.3243 29.1895C61.141 27.1963 61.9199 25.1877 62.7895 23.2174C65.5194 17.0163 69.2022 11.7926 75.8417 9.20374C84.3188 5.90461 93.7412 9.05864 97.7718 16.7719C98.8229 18.788 99.1859 20.9798 99.4506 23.1869C99.5565 24.088 99.7985 24.7066 100.683 25.0656C113.017 30.1441 113.493 46.2121 103.436 54.8265C98.8532 58.7519 93.3253 59.6607 87.6462 60.1189C85.922 60.2563 84.1827 60.1418 82.1334 60.1418C82.6703 61.5317 83.5702 61.4935 84.2356 61.7837C88.962 63.838 93.711 65.8236 97.4769 69.5581C104.245 76.2709 105.031 87.7797 99.1557 94.9431C96.4938 98.1811 92.9926 99.9147 88.8712 100.327C87.6688 100.449 86.6404 100.549 86.0657 101.938C81.2486 113.6 66.7521 114.31 58.3657 106.261C54.8493 102.878 52.9966 98.7386 52.1799 94.0038C52.0211 93.0644 51.8018 92.1404 51.6127 91.2087L51.6052 91.2163Z" fill="url(#paint0_radial_68_305)" stroke="black" stroke-miterlimit="10"/>
+        <path d="M44.455 52.7553V53.5342H40.5V52.7553L41.9444 52.6331V41.4068L40.5 41.2923V40.498H44.455V41.2923L43.0106 41.4068V46.6228H50.2929V41.4068L48.8486 41.2923V40.498H52.8035V41.2923L51.3516 41.4068V52.6331L52.8035 52.7553V53.5342H48.8486V52.7553L50.2929 52.6331V47.524H43.0106V52.6331L44.455 52.7553Z" fill="black"/>
+        <path d="M70.8667 41.9452C70.3009 41.3813 69.6233 40.9428 68.8118 40.6373C68.0002 40.3319 67.0993 40.1753 66.0941 40.1753C65.089 40.1753 64.2178 40.3319 63.4211 40.6373C62.6245 40.9428 61.9395 41.3813 61.3662 41.9452C60.1898 43.1277 59.6016 44.6783 59.6016 46.597V46.7614C59.6016 47.7247 59.7579 48.594 60.0632 49.3771C60.3685 50.1602 60.8077 50.8337 61.3811 51.4054C61.9544 51.9771 62.6319 52.4078 63.436 52.7132C64.2402 53.0187 65.1262 53.1753 66.109 53.1753C67.0918 53.1753 68.0151 53.0187 68.8192 52.7132C69.6233 52.4078 70.3009 51.9693 70.8667 51.4054C72.0208 50.2385 72.6016 48.6879 72.6016 46.7614V46.597C72.6016 44.6626 72.0208 43.112 70.8667 41.9452ZM71.3135 46.7614C71.3135 47.8578 71.1124 48.8211 70.7178 49.6512C70.3232 50.4813 69.735 51.1235 68.9681 51.5777C68.1938 52.0319 67.2407 52.2669 66.1165 52.2669C64.9922 52.2669 64.1136 52.0398 63.3393 51.5777C62.5649 51.1157 61.9618 50.4813 61.5449 49.6512C61.1279 48.8211 60.912 47.8578 60.912 46.7614V46.5813C60.912 45.4849 61.1205 44.5295 61.5374 43.6994C61.9544 42.8693 62.55 42.2271 63.3244 41.7729C64.0987 41.3187 65.0294 41.0837 66.1016 41.0837C67.1737 41.0837 68.164 41.3108 68.9458 41.7729C69.7276 42.2349 70.3158 42.8693 70.7178 43.6916C71.1199 44.5217 71.3135 45.4849 71.3135 46.5735V46.7536V46.7614Z" fill="black"/>
+        <path d="M44.0285 73.1786V73.9576H40.0811V73.1786L41.5254 73.064V61.8302L40.0811 61.7156V60.9214H42.9547L47.7263 72.0942H47.7793L52.4829 60.9214H55.4321V61.7156L53.9878 61.8302V73.064L55.4321 73.1786V73.9576H51.4847V73.1786L52.9669 73.064V62.4946L52.9215 62.4793L48.1347 73.7437H47.386L42.5539 62.5175L42.5009 62.5328L42.5312 67.3746V73.064L44.0285 73.1786Z" fill="black"/>
+        <path d="M72.0358 70.6704V73.5266H62.5V72.7476L63.9444 72.6331V61.3992L62.5 61.2846V60.498H71.7711V63.3466H70.8637L70.7729 61.3839H65.0031V66.3097H70.2058V67.2032H65.0031V72.656H71.0527L71.1359 70.6704H72.0358Z" fill="black"/>
+        <defs>
+          <radialGradient id="paint0_radial_68_305" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(55.4996 70.001) scale(62.2966 62.9127)">
+            <stop stop-color="white"/>
+            <stop offset="1" stop-color="#CBD987"/>
+          </radialGradient>
+        </defs>
+      </svg>
+    </a>
+  </footer>
 
-<!--homepage logo-->
-  <footer id = 'homepage'>
-  <a href = 'portfolio.html' aria-label = 'homepage'>
-  <svg xmlns="http://www.w3.org/2000/svg" width="55" height="70" viewBox="0 0 111 140" fill="none">
-  <path d="M51.6052 91.2163C49.7978 96.6385 48.6484 102.061 46.9015 107.338C43.3322 118.113 38.2127 128.072 32.0949 137.549C30.8094 139.543 29.1835 140.008 27.6635 138.939C26.1662 137.885 26.0604 136.175 27.4745 134.265C36.3373 122.337 42.9466 109.27 47.0679 94.9355C47.5065 93.4081 48.0358 91.8883 48.0737 89.6049C46.4176 92.4229 45.2152 94.7827 43.5893 96.8676C36.7683 105.627 23.3758 106.734 15.8893 99.0594C13.3334 96.4399 11.8739 93.2324 11.647 89.5285C11.5714 88.3143 11.2386 87.4666 10.0363 86.9244C-1.31445 81.7847 -2.19921 68.0231 5.61244 59.2483C9.60523 54.7578 14.7172 52.9784 20.4266 52.3369C23.27 52.0161 26.1209 51.8787 29.1533 51.8558C28.6164 50.7408 27.6409 50.7026 26.8922 50.3895C22.6801 48.6254 18.5134 46.8001 14.929 43.8523C7.76008 37.9643 5.75612 26.5242 10.6186 18.8644C13.288 14.6565 17.2127 12.4571 22.0298 11.7316C23.1263 11.5635 24.306 11.7316 24.9185 10.2424C29.1003 0.108208 41.1392 -2.40433 50.365 4.04121C56.7928 8.5317 58.7816 15.1529 59.4622 22.4767C59.6664 24.6761 59.742 26.8908 60.3243 29.1895C61.141 27.1963 61.9199 25.1877 62.7895 23.2174C65.5194 17.0163 69.2022 11.7926 75.8417 9.20374C84.3188 5.90461 93.7412 9.05864 97.7718 16.7719C98.8229 18.788 99.1859 20.9798 99.4506 23.1869C99.5565 24.088 99.7985 24.7066 100.683 25.0656C113.017 30.1441 113.493 46.2121 103.436 54.8265C98.8532 58.7519 93.3253 59.6607 87.6462 60.1189C85.922 60.2563 84.1827 60.1418 82.1334 60.1418C82.6703 61.5317 83.5702 61.4935 84.2356 61.7837C88.962 63.838 93.711 65.8236 97.4769 69.5581C104.245 76.2709 105.031 87.7797 99.1557 94.9431C96.4938 98.1811 92.9926 99.9147 88.8712 100.327C87.6688 100.449 86.6404 100.549 86.0657 101.938C81.2486 113.6 66.7521 114.31 58.3657 106.261C54.8493 102.878 52.9966 98.7386 52.1799 94.0038C52.0211 93.0644 51.8018 92.1404 51.6127 91.2087L51.6052 91.2163Z" fill="url(#paint0_radial_68_305)" stroke="black" stroke-miterlimit="10"/>
-  <path d="M44.455 52.7553V53.5342H40.5V52.7553L41.9444 52.6331V41.4068L40.5 41.2923V40.498H44.455V41.2923L43.0106 41.4068V46.6228H50.2929V41.4068L48.8486 41.2923V40.498H52.8035V41.2923L51.3516 41.4068V52.6331L52.8035 52.7553V53.5342H48.8486V52.7553L50.2929 52.6331V47.524H43.0106V52.6331L44.455 52.7553Z" fill="black"/>
-  <path d="M70.8667 41.9452C70.3009 41.3813 69.6233 40.9428 68.8118 40.6373C68.0002 40.3319 67.0993 40.1753 66.0941 40.1753C65.089 40.1753 64.2178 40.3319 63.4211 40.6373C62.6245 40.9428 61.9395 41.3813 61.3662 41.9452C60.1898 43.1277 59.6016 44.6783 59.6016 46.597V46.7614C59.6016 47.7247 59.7579 48.594 60.0632 49.3771C60.3685 50.1602 60.8077 50.8337 61.3811 51.4054C61.9544 51.9771 62.6319 52.4078 63.436 52.7132C64.2402 53.0187 65.1262 53.1753 66.109 53.1753C67.0918 53.1753 68.0151 53.0187 68.8192 52.7132C69.6233 52.4078 70.3009 51.9693 70.8667 51.4054C72.0208 50.2385 72.6016 48.6879 72.6016 46.7614V46.597C72.6016 44.6626 72.0208 43.112 70.8667 41.9452ZM71.3135 46.7614C71.3135 47.8578 71.1124 48.8211 70.7178 49.6512C70.3232 50.4813 69.735 51.1235 68.9681 51.5777C68.1938 52.0319 67.2407 52.2669 66.1165 52.2669C64.9922 52.2669 64.1136 52.0398 63.3393 51.5777C62.5649 51.1157 61.9618 50.4813 61.5449 49.6512C61.1279 48.8211 60.912 47.8578 60.912 46.7614V46.5813C60.912 45.4849 61.1205 44.5295 61.5374 43.6994C61.9544 42.8693 62.55 42.2271 63.3244 41.7729C64.0987 41.3187 65.0294 41.0837 66.1016 41.0837C67.1737 41.0837 68.164 41.3108 68.9458 41.7729C69.7276 42.2349 70.3158 42.8693 70.7178 43.6916C71.1199 44.5217 71.3135 45.4849 71.3135 46.5735V46.7536V46.7614Z" fill="black"/>
-  <path d="M44.0285 73.1786V73.9576H40.0811V73.1786L41.5254 73.064V61.8302L40.0811 61.7156V60.9214H42.9547L47.7263 72.0942H47.7793L52.4829 60.9214H55.4321V61.7156L53.9878 61.8302V73.064L55.4321 73.1786V73.9576H51.4847V73.1786L52.9669 73.064V62.4946L52.9215 62.4793L48.1347 73.7437H47.386L42.5539 62.5175L42.5009 62.5328L42.5312 67.3746V73.064L44.0285 73.1786Z" fill="black"/>
-  <path d="M72.0358 70.6704V73.5266H62.5V72.7476L63.9444 72.6331V61.3992L62.5 61.2846V60.498H71.7711V63.3466H70.8637L70.7729 61.3839H65.0031V66.3097H70.2058V67.2032H65.0031V72.656H71.0527L71.1359 70.6704H72.0358Z" fill="black"/>
-  <defs>
-    <radialGradient id="paint0_radial_68_305" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(55.4996 70.001) scale(62.2966 62.9127)">
-      <stop stop-color="white"/>
-      <stop offset="1" stop-color="#CBD987"/>
-    </radialGradient>
-  </defs>
-</svg>
-</a>
-</footer>
-
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
   </body>
-
 </html>
