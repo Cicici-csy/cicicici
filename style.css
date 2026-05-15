@@ -114,6 +114,13 @@ ul {
     visibility: visible;
 }
 
+#portfolioicon{
+    position: fixed;
+    bottom: 5%;
+    left:3%;
+    visibility: visible;
+}
+
 #homepage svg {
     display: block;
     width: 55px;
@@ -138,6 +145,18 @@ ul {
     transform: rotate(-20deg);
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
+
+#portfolioicon svg {
+    transition:
+        transform 0.4s ease,
+        filter 0.3s ease;
+}
+
+#portfolioicon svg:hover {
+    transform: rotate(-20deg);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
 
 .title{
     position: fixed;
@@ -220,10 +239,19 @@ ul {
 #portfolio-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 50px;
+    grid-template-areas:
+        "p1 p2"
+        "p5 p5"
+        "p3 p4";
+    margin-top: 35px;
     padding: 0 80px;
     justify-items: center;
-    row-gap: 40px;
+    row-gap: 20px;
+}
+
+#portfolio-grid svg {
+    max-height: 21vh;
+    width: auto;
 }
 
 #portfolio-grid > div {
@@ -238,6 +266,7 @@ ul {
 }
 
 #project1{
+    grid-area: p1;
     fill: #BEDEE6;
     stroke-width: 1px;
     stroke: #000;
@@ -260,6 +289,7 @@ ul {
 }
 
 #project2{
+    grid-area: p2;
     fill: #CBD987;
     stroke-width: 1px;
     stroke: #000;
@@ -277,6 +307,7 @@ ul {
 }
 
 #project3{
+    grid-area: p3;
     fill: #FFFFBA;
     stroke-width: 1px;
     stroke: #000;
@@ -293,6 +324,7 @@ ul {
 }
 
 #project4{
+    grid-area: p4;
     fill: #F2B6D5;
     stroke-width: 1px;
     stroke: #000;
@@ -308,9 +340,23 @@ ul {
     filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.3));
 }
 
+#project5{
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+    transform: translate(10px, 10px) rotate(-1deg);
+    grid-area: p5;
+    justify-self: center;
+    transition:
+        transform 0.4s ease,
+        filter 0.3s ease;
+}
+#project5:hover {
+    transform: translate(10px, 10px) rotate(-1deg) scale(1.06);
+    filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.3));
+}
+
 .project-grid{
     width: 1300px;
-    display: flex;
+    height: fit-content;
     flex-direction: column;
     align-items: center;
     margin: 120px auto 0;
@@ -471,7 +517,7 @@ body.preview-dark #projects {
         height: auto;
     }
 
-    #project1, #project2, #project3, #project4 {
+    #project1, #project2, #project3, #project4, #project5 {
         transform: none;
     }
 

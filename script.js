@@ -32,7 +32,7 @@ function changed(){
     }
 }
 
-lighticon.addEventListener('click', changed);
+if (lighticon) lighticon.addEventListener('click', changed);
 
 if (window.innerWidth > 1030) {
 
